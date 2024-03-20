@@ -1,0 +1,73 @@
+{
+  "name": "nativescript-iterable-sdk",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-iterable-sdk",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-iterable-sdk",
+        "tsConfig": "packages/nativescript-iterable-sdk/tsconfig.json",
+        "packageJson": "packages/nativescript-iterable-sdk/package.json",
+        "main": "packages/nativescript-iterable-sdk/index.d.ts",
+        "assets": [
+          "packages/nativescript-iterable-sdk/*.md",
+          "packages/nativescript-iterable-sdk/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-iterable-sdk/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "node tools/scripts/build-finish.ts nativescript-iterable-sdk"
+        ],
+        "parallel": false
+      },
+      "outputs": [
+        "dist/packages/nativescript-iterable-sdk"
+      ],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx g @nativescript/plugin-tools:focus-packages nativescript-iterable-sdk"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/nativescript-iterable-sdk/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

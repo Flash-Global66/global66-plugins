@@ -1,0 +1,11 @@
+{
+  "main": "./src/main.ts",
+  "dependencies": {
+    "@nativescript/core": "file:../../node_modules/@nativescript/core",
+    "@global66-plugin/nativescript-iterable-sdk": "file:../../dist/packages/nativescript-iterable-sdk"
+  },
+  "devDependencies": {
+    "@nativescript/android": "~8.6.0",
+    "@nativescript/ios": "~8.6.0"
+  }
+}
