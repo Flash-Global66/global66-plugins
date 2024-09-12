@@ -1,4 +1,3 @@
 import { Observable } from '@nativescript/core';
 
-export class NativescriptIterableSdkCommon extends Observable {
-}
+export class IterableSdkCommon extends Observable {}

@@ -1,2 +1,6 @@
-pod 'Iterable-iOS-AppExtensions'
-pod 'Iterable-iOS-SDK'
+platform :ios, '14.0'
+
+# --- Iterable integration ---
+pod 'Iterable-iOS-SDK', '6.5.0'
+pod 'Iterable-iOS-AppExtensions', '6.5.0'
+# --- End iterable integration ---

@@ -1,0 +1,21 @@
+apply plugin: 'com.android.application'
+if (!project.hasProperty("tempBuild")) {
+  apply plugin: 'com.google.gms.google-services'
+}
+
+repositories {
+  google()
+  jcenter()
+  mavenCentral()
+}
+
+dependencies {
+  def computeFirebaseBomVersion = { -> project.hasProperty("firebaseBomVersion") ? firebaseBomVersion : "32.7.2" }
+  implementation platform("com.google.firebase:firebase-bom:$computeFirebaseBomVersion")
+  implementation 'com.google.firebase:firebase-analytics'
+  implementation 'com.google.firebase:firebase-messaging'
+
+  implementation 'com.iterable:iterableapi:3.4.5'
+  implementation 'com.iterable:iterableapi-ui:3.4.5'
+  implementation 'com.google.firebase:firebase-messaging:17.4.0'
+}

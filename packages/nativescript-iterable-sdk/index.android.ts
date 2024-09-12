@@ -1,5 +1,3 @@
-import { NativescriptIterableSdkCommon } from './common';
+import { IterableSdkCommon } from './common';
 
-export class NativescriptIterableSdk extends NativescriptIterableSdkCommon {
-
-}
+export class IterableSdk extends IterableSdkCommon {}
